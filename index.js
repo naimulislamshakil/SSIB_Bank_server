@@ -4,6 +4,7 @@ const cors = require('cors');
 const colors = require('colors');
 const mongoose = require('mongoose');
 const port = process.env.PORT || 5000;
+const functions = require('firebase-functions');
 require('dotenv').config();
 
 // connect mongoose
@@ -38,3 +39,5 @@ app.use('*', (req, res) => {
 app.listen(port, () => {
 	console.log(`SSIB Bank Management Website Is Running: ${port}`.red.bold);
 });
+
+exports.api = functions.https.onRequest(app);
