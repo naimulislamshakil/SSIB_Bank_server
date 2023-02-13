@@ -10,3 +10,7 @@ exports.logInUserService = async (data) => {
 	const user = await REGISER_MODEL.findOne({ email });
 	return user;
 };
+
+exports.userPersistenceService = async (email) => {
+	return await REGISER_MODEL.findOne({ email });
+};
